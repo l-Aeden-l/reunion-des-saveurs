@@ -78,6 +78,26 @@
             <p class="lead">
               L'entreprise de restauration " Réunion des Saveurs " est un service de livraison de plats Fait-Maison sur toute la zone Technopole de la Réunion. Toutes nos spécialités sont préparées à base de produits frais ; qu'il s'agisse de menus chauds ou froids, ou encore de nos desserts, nous vous garantissons la fraîcheur de nos ingrédients.
             </p>
+
+
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/fr_FR/sdk/xfbml.customerchat.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <!-- Your customer chat code -->
+    <div class="fb-customerchat"
+      attribution=setup_tool
+      page_id="357781158359111"
+      theme_color="#111113"
+      logged_in_greeting="Bonjour ! Vous souhaitez commander ? Décrivez-nous votre commande ici :"
+      logged_out_greeting="Bonjour ! Vous souhaitez commander ? Décrivez-nous votre commande ici :">
+    </div>
           </div>
         </div>
       </div>
@@ -138,25 +158,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Load Facebook SDK for JavaScript -->
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = 'https://connect.facebook.net/fr_FR/sdk/xfbml.customerchat.js';
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-
-    <!-- Your customer chat code -->
-    <div class="fb-customerchat"
-      attribution=setup_tool
-      page_id="357781158359111"
-      theme_color="#111113"
-      logged_in_greeting="Bonjour ! Vous souhaitez commander ? Décrivez-nous votre commande ici :"
-      logged_out_greeting="Bonjour ! Vous souhaitez commander ? Décrivez-nous votre commande ici :">
-    </div>
 
     <!-- Footer -->
     <footer class="py-5 bg-dark">
