@@ -148,13 +148,15 @@
       js.src = 'https://connect.facebook.net/fr_FR/sdk/xfbml.customerchat.js';
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-    
+
     <!-- Your customer chat code -->
     <div class="fb-customerchat"
       attribution=setup_tool
       page_id="357781158359111"
-      theme_color="#111113">
-    </div> 
+      theme_color="#111113"
+      logged_in_greeting="Bonjour ! Vous souhaitez commander ? Décrivez-nous votre commande ici :"
+      logged_out_greeting="Bonjour ! Vous souhaitez commander ? Décrivez-nous votre commande ici :">
+    </div>
 
     <!-- Footer -->
     <footer class="py-5 bg-dark">
