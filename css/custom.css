@@ -13,7 +13,9 @@ nav .nav-link {
 .card {
     margin-bottom: 1.75rem;
 }
-
+    .card-body { text-align: center}
+    .card-body .lead { text-align: inherit;}
+    
 /* Carte OpenStreetMap de la Réunion */
 section#delivery #map {
     width: 100%;
