@@ -13,7 +13,10 @@ nav .nav-link {
 .card {
     margin-bottom: 1.75rem;
 }
-    .card-body { text-align: center}
+    .card-body {
+        text-align: center;
+    }
+
     .card-body .badge { 
         text-align: inherit;
         font-size: 1.25rem;
