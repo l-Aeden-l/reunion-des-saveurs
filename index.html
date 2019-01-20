@@ -33,6 +33,16 @@
         xfbml            : true,
         version          : 'v2.12'
       });
+
+    /* make the API call */
+    FB.api(
+        "/357781158359111/ratings",
+        function (response) {
+          if (response && !response.error) {
+            console.log(response);
+          }
+        }
+    );
     };
   
     (function(d, s, id){
@@ -42,6 +52,7 @@
        js.src = "https://connect.facebook.net/fr_FR/sdk/xfbml.customerchat.js";
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
+
   </script>
 
     <!-- Your customer chat code -->
