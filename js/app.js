@@ -25,10 +25,32 @@ var description = new Vue({
     data: {
         description: null,
     },
+    created: function () {
+        window.fbAsyncInit = function() {
+            FB.init({
+              appId            : '1658021547630800',
+              autoLogAppEvents : true,
+              xfbml            : true,
+              version          : 'v2.12'
+            });
+        
+            
+            FB.api(
+                "/357781158359111/ratings?access_token=EAAXj9jlgYNABAK1kkx9CaQVGrxKcj1YrQxYmz9qYQGN4pBztk3TvZCc8w51m2Y41XSZBb4laJB8nDdOxmNdmSgVH00nF2F0zdeFnj4mUjphFOPAa5qz41PwvkiggBoowBZBr6FpPWhLNvZBCxp2fwboIWpW5RraZCRlydeunfWafn1iCzGePS",
+                function (response) {
+                    if (response && !response.error) {
+                    console.log(response);
+                    }
+                }
+            );
+            
+          };
+    },
+    
     mounted(){ // Equivalent on ready en Jquery
         return axios
             .get("./data/description.json").then(response => {
-                this.description = response.data.description
+                //this.description = response.data.description
             })
     }
 })

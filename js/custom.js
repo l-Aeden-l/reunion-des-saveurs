@@ -2,33 +2,13 @@
  * Code pour les avis et le chat Facebook
  */
 
-window.fbAsyncInit = function() {
-    FB.init({
-      appId            : '1658021547630800',
-      autoLogAppEvents : true,
-      xfbml            : true,
-      version          : 'v2.12'
-    });
-
-    
-    FB.api(
-        "/357781158359111/ratings?access_token=EAAXj9jlgYNABAK1kkx9CaQVGrxKcj1YrQxYmz9qYQGN4pBztk3TvZCc8w51m2Y41XSZBb4laJB8nDdOxmNdmSgVH00nF2F0zdeFnj4mUjphFOPAa5qz41PwvkiggBoowBZBr6FpPWhLNvZBCxp2fwboIWpW5RraZCRlydeunfWafn1iCzGePS",
-        function (response) {
-            if (response && !response.error) {
-            console.log(response);
-            }
-        }
-    );
-    
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/fr_FR/sdk/xfbml.customerchat.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
+(function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/fr_FR/sdk/xfbml.customerchat.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 
 
 /**
