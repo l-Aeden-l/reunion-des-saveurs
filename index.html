@@ -21,6 +21,7 @@
 
   </head>
 
+  <body>
     <!-- Navigation -->
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -72,7 +73,7 @@
             <img src="images/divider.png" class="d-block mx-auto" style="margin-bottom: 20px;" alt="barre de séparation">
             <h2>À propos</h2>
             <p class="lead">
-              L'entreprise de restauration " Réunion des Saveurs " est un service de livraison de plats Fait-Maison sur toute la zone Technopole de la Réunion. Toutes nos spécialités sont préparées à base de produits frais ; qu'il s'agisse de menus chauds ou froids, ou encore de nos desserts, nous vous garantissons la fraîcheur de nos ingrédients.
+              {{ description }}
             </p>
 
           </div>
@@ -252,17 +253,16 @@
       </div>
     </section>
 
-    <body id="page-top">
-      <!-- Your customer chat code -->
-      <div class="fb-customerchat"
-      attribution=setup_tool
-      page_id="357781158359111"
-      theme_color="#111113"
-      greeting_dialog_delay=1
-      greeting_dialog_display=show
-      logged_in_greeting="Une commande ? Indiquez nom, prénom, téléphone, adresse [+ nom d'entreprise] :"
-      logged_out_greeting="A bientôt !"
-      >
+    <!-- Your customer chat code -->
+    <div class="fb-customerchat"
+    attribution=setup_tool
+    page_id="357781158359111"
+    theme_color="#111113"
+    greeting_dialog_delay=1
+    greeting_dialog_display=show
+    logged_in_greeting="Une commande ? Indiquez nom, prénom, téléphone, adresse [+ nom d'entreprise] :"
+    logged_out_greeting="A bientôt !"
+    >
     </div>
 
     <!-- Footer -->
@@ -286,6 +286,11 @@
 
     <!-- Custom JavaScript for this theme -->
     <script src="js/scrolling-nav.js"></script>
+
+    <!-- Vue.js and Axios -->
+    <script src="js/vue/vue.js"></script>
+    <script src="js/vue/axios.js"></script>
+    <script src="js/app.js"></script>
 
   </body>
 
