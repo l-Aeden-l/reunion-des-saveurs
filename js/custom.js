@@ -2,13 +2,7 @@
  * Code pour les avis et le chat Facebook
  */
 
-window.fbAsyncInit = function() {
-    FB.init({
-      appId            : '1658021547630800',
-      autoLogAppEvents : true,
-      xfbml            : true,
-      version          : 'v2.12'
-    });
+
 
     /*
     FB.api(
@@ -20,16 +14,6 @@ window.fbAsyncInit = function() {
         }
     );
     */
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/fr_FR/sdk/xfbml.customerchat.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-
 
 /**
  * Code pour la carte du site
