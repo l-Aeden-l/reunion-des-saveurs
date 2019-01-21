@@ -23,7 +23,7 @@
 var description = new Vue({
     el: "#description",
     data: {
-        description: "bonjour",
+        description: null,
     },
     created: function () {
         window.fbAsyncInit = function () {
@@ -31,19 +31,23 @@ var description = new Vue({
                 appId: '1658021547630800',
                 autoLogAppEvents: true,
                 xfbml: true,
-                version: 'v2.12'
+                version: 'v3.2'
             });
 
             FB.api(
-                "/357781158359111/ratings?access_token=102140a42e4bf12854def715aa467408",
+                "/357781158359111/ratings?access_token=EAAXj9jlgYNABAC0OcbzabhVquWuCwyZAu5KF3RIZAioNG9seIQZCLvvQCeJXvdl1RygrNA3oLddKtbXDiZARaZAWsyKBnzZC6nZClFkADaHzJDLMep7sIQV0HvjQybcyAZBfgEsiAfp0cMZAi7OyYaqpNZAKJBELDdMUj5xfHnpUEc9dNhXVoOpHeLX0bovKhVuCZCyHD5pKj5OhAZDZD",
                 function (response) {
+                    console.log("truc");
                     if (response && !response.error) {
-                        debugger
-                        console.log(response);
+                    console.log(response);
+                    this.description = response;
+                    }else{
+                        console.log("truc");
                     }
                 }
             );
-            
+
+
             (function (d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
                 if (d.getElementById(id)) { return; }
@@ -58,7 +62,7 @@ var description = new Vue({
     mounted(){ // Equivalent on ready en Jquery
         return axios
             .get("./data/description.json").then(response => {
-                this.description = response.data.description
+                //this.description = response.data.description
             })
     }
 })

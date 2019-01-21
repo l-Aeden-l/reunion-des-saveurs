@@ -3,17 +3,37 @@
  */
 
 
+window.fbAsyncInit = function () {
+    FB.init({
+        appId: '1658021547630800',
+        autoLogAppEvents: true,
+        xfbml: true,
+        version: 'v3.2'
+    });
 
-    /*
     FB.api(
-        "/357781158359111/ratings?access_token=EAAPxdxZAi8p0BAEMng1SI92uRJzZBilE0tKnvMOZCZC0AcazQDhd6YZCPN4uDEeFMtJkJNZCqZAHYCCzn8tYgY3XaYYy0VelBkthViGHFLLbvl0MZBy8w3Rrv1ZCE2kkwelYVXzZAqBZCXWygsdkz9rDhxKVbTBCvrRplbRfhauI7uRMnozMbZC9WEgqAFxC7mB0qjaOg0MsbGruuQZDZD",
+        "/357781158359111/ratings?access_token=EAAXj9jlgYNABAC0OcbzabhVquWuCwyZAu5KF3RIZAioNG9seIQZCLvvQCeJXvdl1RygrNA3oLddKtbXDiZARaZAWsyKBnzZC6nZClFkADaHzJDLMep7sIQV0HvjQybcyAZBfgEsiAfp0cMZAi7OyYaqpNZAKJBELDdMUj5xfHnpUEc9dNhXVoOpHeLX0bovKhVuCZCyHD5pKj5OhAZDZD",
         function (response) {
+            console.log("truc");
             if (response && !response.error) {
             console.log(response);
+            this.description = response;
+            }else{
+                console.log("truc");
             }
         }
     );
-    */
+
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/fr_FR/sdk/xfbml.customerchat.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+}
 
 /**
  * Code pour la carte du site
