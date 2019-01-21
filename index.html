@@ -35,7 +35,7 @@
                         <a class="nav-link js-scroll-trigger" href="#home"><i class="fas fa-home"></i> Accueil</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#description"><i class="fas fa-info-circle"></i> À propos</a> 
+                        <a class="nav-link js-scroll-trigger" href="#information"><i class="fas fa-info-circle"></i> À propos</a> 
                       </li>
                       <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#menu"><i class="fas fa-utensils"></i> Nos menus</a>
@@ -66,16 +66,13 @@
       </div>
     </header>
 
-    <section id="description">
+    <section id="information">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <img src="images/divider.png" class="d-block mx-auto" style="margin-bottom: 20px;" alt="barre de séparation">
             <h2>À propos</h2>
-            <p class="lead">
-              {{ description }}
-            </p>
-
+            <description :description="description"></description>
           </div>
         </div>
         <div class="row">
@@ -91,6 +88,7 @@
           </div>
         </div>
       </div>
+
     </section>
 
     <section id="menu" class="bg-light">

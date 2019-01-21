@@ -20,10 +20,16 @@
         .catch(error => console.log(error));
  */
 
-var description = new Vue({
-    el: "#description",
+Vue.component('description', {
+    props: ['description'],
+    template: `<p class="lead">{{ description }}</p>`
+})
+
+let app = new Vue({
+    el: "#information",
     data: {
         description: null,
+        ratings: null
     },
     created: function () {
         window.fbAsyncInit = function() {
@@ -39,18 +45,18 @@ var description = new Vue({
                 "/357781158359111/ratings?access_token=EAAXj9jlgYNABAK1kkx9CaQVGrxKcj1YrQxYmz9qYQGN4pBztk3TvZCc8w51m2Y41XSZBb4laJB8nDdOxmNdmSgVH00nF2F0zdeFnj4mUjphFOPAa5qz41PwvkiggBoowBZBr6FpPWhLNvZBCxp2fwboIWpW5RraZCRlydeunfWafn1iCzGePS",
                 function (response) {
                     if (response && !response.error) {
-                    console.log(response);
+                        this.ratings = response;
+                        console.log(response);
                     }
                 }
             );
             
           };
     },
-    
     mounted(){ // Equivalent on ready en Jquery
         return axios
             .get("./data/description.json").then(response => {
-                //this.description = response.data.description
+                this.description = response.data.description
             })
     }
 })
