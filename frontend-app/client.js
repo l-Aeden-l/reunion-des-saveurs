@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+
 
     var dataDirectory = "./data"
 
@@ -21,6 +21,14 @@ document.addEventListener('DOMContentLoaded', function() {
      */
     
     // Facebook Customer Chat (Bulle de discussion en bas de page)
+    window.fbAsyncInit = function() {
+        FB.init({
+          appId            : '1658021547630800',
+          autoLogAppEvents : true,
+          xfbml            : true,
+          version          : 'v2.12'
+        });
+    };
     (function(d, s, id){
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) {return;}
@@ -110,4 +118,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var popup = L.popup();
 
-})
