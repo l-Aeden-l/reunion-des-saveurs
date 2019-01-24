@@ -1,4 +1,4 @@
-(function(){
+document.addEventListener('DOMContentLoaded', function() {
 
     var dataDirectory = "./data"
 
@@ -73,7 +73,7 @@
     })
     .catch(err => console.log(err));
 
-    
+
 
     /**
      * ==================================================
@@ -110,4 +110,4 @@
 
     var popup = L.popup();
 
-})()
+})
