@@ -23,6 +23,16 @@ nav .nav-link {
         font-weight: 400;
     }
 
+/**
+ * Sticky-sidebar
+ */
+
+#cart .card{
+    position: sticky;
+    position: -webkit-sticky;
+    top: 100px; /* required */
+}
+
 /* Carte OpenStreetMap de la Réunion */
 section#delivery #map {
     width: 100%;

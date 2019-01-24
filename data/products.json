@@ -1,0 +1,83 @@
+
+[
+    {   
+        "name": "Plats",
+        "products": [
+            {
+                "imgUrl": "data/pictures/bolognaise.jpg",
+                "name": "Bolognaise",
+                "price": 7.50
+            },
+            {
+                "imgUrl": "data/pictures/carbonara.jpg",
+                "name": "Carbonara",
+                "price": 7.50
+            },
+            {
+                "imgUrl": "data/pictures/saumon.jpg",
+                "name": "Saumon",
+                "price": 7.50
+            },
+            {
+                "imgUrl": "data/pictures/poulet-curry.jpg",
+                "name": "Poulet curry",
+                "price": 7.50
+            },
+            {
+                "imgUrl": "data/pictures/poulet-provencale.jpg",
+                "name": "'Poulet provençale",
+                "price": 7.50
+            },
+            {
+                "imgUrl": "data/pictures/tomate-provencale.jpg",
+                "name": "'Poulet provençale",
+                "price": 7.50
+            }
+        ]
+    },
+    {   
+        "name": "Boissons",
+        "products": [
+            {
+                "imgUrl": "data/pictures/fanta.jpg",
+                "name": "'Fanta",
+                "price": 1.80
+            },
+            {
+                "imgUrl": "data/pictures/lipton.jpg",
+                "name": "'Lipton",
+                "price": 1.80
+            },
+            {
+                "imgUrl": "data/pictures/coca.jpg",
+                "name": "Coca cola",
+                "price": 1.80
+            },
+            {
+                "imgUrl": "data/pictures/cot.jpg",
+                "name": "'Cot",
+                "price": 1.50
+            },
+            {
+                "imgUrl": "data/pictures/rea.jpg",
+                "name": "Réa",
+                "price": 1.20
+            },
+            {
+                "imgUrl": "data/pictures/eau.jpg",
+                "name": "Eau",
+                "price": 1.00
+            }
+        ]
+    },
+    {
+        "name": "Dessert",
+        "products": [
+            {
+                "imgUrl": "data/pictures/salade-de-fruits.jpg",
+                "name": "Salade de fruit",
+                "price": 2.00
+            }
+        ]
+    }
+]

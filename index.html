@@ -11,13 +11,13 @@
     <title>Réunion des saveurs - Bar à pâtes itinérant Fait-Maison</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/scrolling-nav.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="assets/css/scrolling-nav.css" rel="stylesheet">
+    <link href="assets/css/custom.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link rel="stylesheet" href="js/leaflet/leaflet.css">
+    <link rel="stylesheet" href="assets/js/leaflet/leaflet.css">
 
   </head>
 
@@ -41,7 +41,7 @@
                         <a class="nav-link js-scroll-trigger" href="#menu"><i class="fas fa-utensils"></i> Nos menus</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#delivery"><i class="fas fa-truck"></i> Livraison</a>
+                        <a class="nav-link js-scroll-trigger" href="#location"><i class="fas fa-truck"></i> Nos emplacements</a>
                       </li>
                 </ul>
             </div>
@@ -53,7 +53,7 @@
       <div class="container text-center">
         <div class="row">
           <div class="col-md-2">
-            <img src="images/logo.png"/>
+            <img src="assets/images/logo.png"/>
           </div>
           <div class="col-md-8 offset-md-2 align-self-center text-left">
             <h1>Livraison de plats Fait-Maison !</h1>
@@ -69,175 +69,72 @@
     <section id="information">
       <div class="container">
         <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <img src="images/divider.png" class="d-block mx-auto" style="margin-bottom: 20px;" alt="barre de séparation">
-            <h2>À propos</h2>
-            <description :description="description"></description>
+          <div class="col-md-12">
+            <img src="assets/images/divider.png" class="d-block mx-auto" style="margin-bottom: 20px;" alt="barre de séparation">
+            <h2 class="mx-auto">À propos</h2>
+              <p id="description" class="lead"></p>
           </div>
         </div>
+
         <div class="row">
-          <div class="col-md-6">
-              <div class="fb-post" 
-              data-href="https://www.facebook.com/solene.lecudennec/posts/10157025544643988"
-              data-width="500"></div>
+            <h2 class="mx-auto">Ce qu'en disent nos clients</h2>
+            <div class="col-md-6">
+                <div class="fb-post" 
+                data-href="https://www.facebook.com/solene.lecudennec/posts/10157025544643988"
+                data-width="500"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="fb-post" 
+                data-href="https://www.facebook.com/tiikaw.lebeau/posts/1225976377543646"
+                data-width="500"></div>
+            </div>
           </div>
-          <div class="col-md-6">
-              <div class="fb-post" 
-              data-href="https://www.facebook.com/tiikaw.lebeau/posts/1225976377543646"
-              data-width="500"></div>
-          </div>
-        </div>
       </div>
 
     </section>
 
     <section id="menu" class="bg-light">
       <div class="container">
-        <h2>Composition du plat <span class="badge badge-dark">7,50 €</span></h2>
-        <div class="row">
-            <div class="col-md-4">
-            <div class="card shadow-sm">
-              <img src="images/bolognaise.jpg" class="image-menu img-fluid" alt="Bolognaise">
-              <div class="card-body">
-                <h4 class="card-title">Bolognaise</h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card shadow-sm">
-              <img src="images/carbonara.jpg" class="image-menu img-fluid" alt="Carbonara">
-              <div class="card-body">
-                <h4 class="card-title">Carbonara</h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card shadow-sm">
-              <img src="images/saumon.jpg" class="image-menu img-fluid" alt="Saumon">
-              <div class="card-body">
-                <h4 class="card-title">Saumon</h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card shadow-sm">
-              <img src="images/poulet-curry.jpg" class="image-menu img-fluid" alt="Poulet au curry">
-              <div class="card-body">
-                <h4 class="card-title">Poulet curry</h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card shadow-sm">
-              <img src="images/poulet-provencalle.jpg" class="image-menu img-fluid" alt="Poulet à la provençale">
-              <div class="card-body">
-                <h4 class="card-title">Poulet provençale</h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card shadow-sm">
-              <img src="images/tomate-provencale.jpg" class="image-menu img-fluid" alt="Tomate à la provençale">
-              <div class="card-body">
-                <h4 class="card-title">Tomate provençale</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-    
-        <!-- BOISSONS -->
-    
-        <h2>Boissons</h2>
+        <div id="order" class="row">
+          <div id="products" class="col-md-8">
 
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card shadow-sm">
-              <img src="images/fanta.jpg" class="image-menu img-fluid" alt="Fanta en canette">
-              <div class="card-body">
-                <h4 class="card-title">Fanta</h4>
-                <hr>
-                <span class="badge badge-dark">1,80 €</span>
-              </div>
-            </div>
           </div>
-          <div class="col-md-4">
-            <div class="card shadow-sm">
-              <img src="images/lipton.jpg" class="image-menu img-fluid" alt="Lipton en canette">
-              <div class="card-body">
-                <h4 class="card-title">Lipton</h4>
-                <hr>
-                <span class="badge badge-dark">1,80 €</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card shadow-sm">
-              <img src="images/coca.jpg" class="image-menu img-fluid" alt="Coca en canette">
-              <div class="card-body">
-                <h4 class="card-title">Coca</h4>
-                <hr>
-                <span class="badge badge-dark">1,80 €</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card shadow-sm">
-              <img src="images/cot.jpg" class="image-menu img-fluid" alt="Cot en bouteille">
-              <div class="card-body">
-                <h4 class="card-title">Cot</h4>
-                <hr>
-                <span class="badge badge-dark">1,50 €</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card shadow-sm">
-              <img src="images/rea.jpg" class="image-menu img-fluid" alt="Réa en bouteille">
-              <div class="card-body">
-                <h4 class="card-title">Réa</h4>
-                <hr>
-                <span class="badge badge-dark">1,20 €</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card shadow-sm">
-              <img src="images/eau.jpg" class="image-menu img-fluid" alt="Eau en bouteille">
-              <div class="card-body">
-                <h4 class="card-title">Eau</h4>
-                <hr>
-                <span class="badge badge-dark">1,00 €</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- BOISSONS -->
-    
-        <h2>Dessert</h2>
-
-        <div class="row">
-          <div class="col-md-12">
+          <aside id="cart" class="col-md-4" data-sticky>
             <div class="card">
-              <div class="row ">
-                <div class="col-md-4">
-                  <img src="images/salade-de-fruits.jpg" class="w-100">
-                </div>
-                <div class="col-md-8 align-self-center"> 
-                  <div class="card-body">
-                    <h4 class="card-title">Salade de fruits Fait-Maison</h4>
-                    <hr>
-                    <span class="badge badge-dark">2,00 €</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+            <article class="card-body">
+              <h4 class="card-title text-center mb-4 mt-1">Votre panier</h4>
+              <hr>
+              <form>
+              <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                 </div>
+                <input name="" class="form-control" placeholder="Email or login" type="email">
+              </div> <!-- input-group.// -->
+              </div> <!-- form-group// -->
+              <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                 </div>
+                  <input class="form-control" placeholder="******" type="password">
+              </div> <!-- input-group.// -->
+              </div> <!-- form-group// -->
+              <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-block"> Login  </button>
+              </div> <!-- form-group// -->
+              <p class="text-center"><a href="#" class="btn">Forgot password?</a></p>
+              </form>
+            </article>
+            </div> <!-- card.// -->
+            
+              </aside> <!-- col.// -->
         </div>
       </div>
     </section>
 
-    <section id="delivery">
+    <section id="location">
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-8 mx-auto">
@@ -272,23 +169,20 @@
     </footer>
 
     <!-- Leaflet (Librairie pour OpenStreetMap)-->
-    <script src="js/leaflet/leaflet.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="assets/js/leaflet/leaflet.js"></script>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="js/jquery/jquery.min.js"></script>
-    <script src="js/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jquery/jquery.min.js"></script>
+    <script src="assets/js/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="js/jquery-easing/jquery.easing.min.js"></script>
+    <script src="assets/js/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom JavaScript for this theme -->
-    <script src="js/scrolling-nav.js"></script>
+    <script src="assets/js/scrolling-nav.js"></script>
 
-    <!-- Vue.js and Axios -->
-    <script src="js/vue/vue.js"></script>
-    <script src="js/vue/axios.js"></script>
-    <script src="js/app.js"></script>
+    <!-- Application Javascript -->
+    <script src="frontend-app/client.js"></script>
 
   </body>
 
