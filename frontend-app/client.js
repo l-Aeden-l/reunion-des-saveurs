@@ -1,4 +1,4 @@
-
+document.addEventListener('DOMContentLoaded', function() {
 
     var dataDirectory = "./data"
 
@@ -118,3 +118,4 @@
 
     var popup = L.popup();
 
+})
