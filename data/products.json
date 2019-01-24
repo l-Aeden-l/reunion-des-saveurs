@@ -40,12 +40,12 @@
         "products": [
             {
                 "imgUrl": "data/pictures/fanta.jpg",
-                "name": "'Fanta",
+                "name": "Fanta",
                 "price": 1.80
             },
             {
                 "imgUrl": "data/pictures/lipton.jpg",
-                "name": "'Lipton",
+                "name": "Lipton",
                 "price": 1.80
             },
             {
@@ -55,7 +55,7 @@
             },
             {
                 "imgUrl": "data/pictures/cot.jpg",
-                "name": "'Cot",
+                "name": "Cot",
                 "price": 1.50
             },
             {
