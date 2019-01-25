@@ -97,13 +97,18 @@
     <section id="menu" class="bg-light">
       <div class="container">
         <div id="order" class="row">
-          <div id="products" class="col-md-8">
+          <!-- List of product -->
+          <div id="products" class="col-md-8"></div>
 
-          </div>
+          <!-- Cart -->
           <aside id="cart" class="col-md-4" data-sticky>
             <div class="card">
             <article class="card-body">
               <h4 class="card-title text-center mb-4 mt-1">Votre panier</h4>
+              <hr>
+              <div id="cart-items" class="row">
+
+              </div>
               <hr>
               <form>
                 <!-- Second name -->
@@ -115,6 +120,7 @@
                     <input name="" class="form-control" placeholder="Nom" type="email">
                   </div>
                 </div>
+
                 <!-- First name -->
                 <div class="form-group">
                   <div class="input-group">
@@ -125,28 +131,39 @@
                   </div>
                 </div>
 
-                <!-- Company -->
-                <div class="form-group">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                          <span class="input-group-text"> <i class="fa fa-building"></i> </span>
-                      </div>
-                      <input name="" class="form-control" placeholder="Entreprise" type="email">
-                    </div>
-                  </div>
-    
                 <!-- Phone -->
                 <div class="form-group">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                          <span class="input-group-text"> <i class="fa fa-phone" style="transform: rotate(90deg);"></i> </span>
-                      </div>
-                      <input name="" class="form-control" placeholder="téléphone" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                      required>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-phone" style="transform: rotate(90deg);"></i> </span>
                     </div>
+                    <input name="" class="form-control" placeholder="téléphone" type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$"
+                    required>
                   </div>
+                </div>
+
+                <!-- Company -->
                 <div class="form-group">
-                  <button type="submit" class="btn btn-primary btn-block"> Login  </button>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                    </div>
+                    <input name="" class="form-control" placeholder="Entreprise" type="email">
+                  </div>
+                </div>
+
+                <!-- Address -->
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-map-marked-alt"></i> </span>
+                    </div>
+                    <input name="" class="form-control" placeholder="Adresse de livraison" type="email">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <button type="submit" class="btn btn-dark btn-block"> Login  </button>
                 </div>
               </form>
             </article>
