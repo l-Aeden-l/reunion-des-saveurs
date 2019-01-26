@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
-    var token = "EAAXj9jlgYNABAK1kkx9CaQVGrxKcj1YrQxYmz9qYQGN4pBztk3TvZCc8w51m2Y41XSZBb4laJB8nDdOxmNdmSgVH00nF2F0zdeFnj4mUjphFOPAa5qz41PwvkiggBoowBZBr6FpPWhLNvZBCxp2fwboIWpW5RraZCRlydeunfWafn1iCzGePS";
+    var token = "EAAXj9jlgYNABANUOhE96IB2FdZBMbEWqBZAZC5ZB8fhEyKrLbnddyrHPClXQ8tD9iYXddmUvjOtEu0Cefv29HzPFC8YVmNFnszFp6fsvy5eKcn9x4fF7G30i3E6ynmmOC7iUNIfpHiYNyKiRoSPfaOtQnOVIC8qPOZBwBofJW7QZDZD";
     
     fetch("https://graph.facebook.com/v2.6/me/messages?access_token="+token+"", { 
         method: 'POST', 
