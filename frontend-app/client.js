@@ -37,23 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
     fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
-    var token = "EAAXj9jlgYNABANUOhE96IB2FdZBMbEWqBZAZC5ZB8fhEyKrLbnddyrHPClXQ8tD9iYXddmUvjOtEu0Cefv29HzPFC8YVmNFnszFp6fsvy5eKcn9x4fF7G30i3E6ynmmOC7iUNIfpHiYNyKiRoSPfaOtQnOVIC8qPOZBwBofJW7QZDZD";
-    
-    fetch("https://graph.facebook.com/v2.6/me/messages?access_token="+token+"", { 
-        method: 'POST', 
-        body: JSON.stringify({
-            "messaging_type": "MESSAGE_TAG",
-            "recipient": {
-                "id": "357781158359111"
-            },
-            "message": {
-                "text": "hello, world!"
-            }
-        }), 
-        headers: {'Content-Type': 'application/json'}
-    })
-    .then(console.log)
-
     /**
      * ==================================================
      *                   #MENU
@@ -134,15 +117,11 @@ document.addEventListener('DOMContentLoaded', function() {
      * ==================================================
      */
 
-
     var mymap = "map";
     var token = "pk.eyJ1IjoicmRzYXZldXJzIiwiYSI6ImNqcXRvZXMzejAzYTQ0NG1xNmJzazB0Y3EifQ.XPvunr4OtPogVK9L2Ln2jA";
     var zoomLevel = 13;
-    var latitude = -20.9066966;
-    var longitude = 55.4960876;
-    //, 20.9079 55.5033
-
-
+    var latitude = -20.895279;
+    var longitude = 55.4961283;
 
     var mymap = L.map('map').setView([latitude, longitude], zoomLevel);
 
@@ -151,15 +130,52 @@ document.addEventListener('DOMContentLoaded', function() {
         id: 'mapbox.streets'
     }).addTo(mymap);
 
-    L.marker([latitude, longitude]).addTo(mymap)
-    .bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+    var mapMarkerDirectory = "./assets/js/leaflet/images/"
+    var regularIcon = L.icon({
+        iconUrl: mapMarkerDirectory+'rds-marker-icon.png',
+        shadowUrl: mapMarkerDirectory+'rds-marker-shadow.png',
+    
+        iconSize:     [25, 41], // size of the icon
+        shadowSize:   [45, 41], // size of the shadow
+        iconAnchor:   [12.5, 41], // point of the icon which will correspond to marker's location
+        shadowAnchor: [12, 41],  // the same for the shadow
+        popupAnchor:  [0, -41] // point from which the popup should open relative to the iconAnchor
+    });
+    var activeIcon = L.icon({
+        iconUrl: mapMarkerDirectory+'rds-active-marker-icon.png',
+        shadowUrl: mapMarkerDirectory+'rds-marker-shadow.png',
+    
+        iconSize:     [25, 41], // size of the icon
+        shadowSize:   [45, 41], // size of the shadow
+        iconAnchor:   [12.5, 41], // point of the icon which will correspond to marker's location
+        shadowAnchor: [12, 41],  // the same for the shadow
+        popupAnchor:  [0, -41] // point from which the popup should open relative to the iconAnchor
+    });
 
-    L.circle([latitude, longitude], {
-        color: 'black',
-        fillColor: '#101011',
-        fillOpacity: 0.5,
-        radius: 1000
-    }).addTo(mymap);
+        // Affichage des emplacements
+        var locations_file = "locations.json";
+        var weekDays = new Array( "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche" );
+        var date = new Date();
+        var today = weekDays[date.getDay() - 1];
+        today = "Mardi";
+        fetch(dataDirectory+"/"+locations_file)
+        .then(res => res.json())
+        .then(data => {
+            for (const key in data) {
+                if (data.hasOwnProperty(key)) {
+                    const element = data[key];
+                    console.log(today+" "+element.day);
+                    if(today == element.day){
+                        L.marker([element.latitude, element.longitude], {icon: activeIcon}).addTo(mymap)
+                        .bindPopup(`<b>${element.day}</b><br/>${element.description}`).openPopup();
+                    }else{
+                        L.marker([element.latitude, element.longitude], {icon: regularIcon}).addTo(mymap)
+                        .bindPopup(`<b>${element.day}</b><br/>${element.description}`);
+                    }
+                }
+            }
+        })
+        .catch(err => console.log(err));
 
     var popup = L.popup();
 
