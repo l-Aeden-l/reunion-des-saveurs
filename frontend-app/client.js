@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
           appId            : '1658021547630800',
           autoLogAppEvents : true,
           xfbml            : true,
-          version          : 'v2.12'
+          version          : 'v2.6'
         });
     };
     (function(d, s, id){
@@ -37,7 +37,22 @@ document.addEventListener('DOMContentLoaded', function() {
     fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
-
+    var token = "EAAXj9jlgYNABAK1kkx9CaQVGrxKcj1YrQxYmz9qYQGN4pBztk3TvZCc8w51m2Y41XSZBb4laJB8nDdOxmNdmSgVH00nF2F0zdeFnj4mUjphFOPAa5qz41PwvkiggBoowBZBr6FpPWhLNvZBCxp2fwboIWpW5RraZCRlydeunfWafn1iCzGePS";
+    
+    fetch("https://graph.facebook.com/v2.6/me/messages?access_token="+token+"", { 
+        method: 'POST', 
+        body: JSON.stringify({
+            "messaging_type": "MESSAGE_TAG",
+            "recipient": {
+                "id": "357781158359111"
+            },
+            "message": {
+                "text": "hello, world!"
+            }
+        }), 
+        headers: {'Content-Type': 'application/json'}
+    })
+    .then(console.log)
 
     /**
      * ==================================================
