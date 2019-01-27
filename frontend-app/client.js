@@ -51,61 +51,26 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(data => {
         for (const key in data) {
             menu_formatedContent += `<h2>${data[key].name}</h2>`;
+            menu_formatedContent += `<div class="row">`;
                 products = data[key].products;
                 for(const key in products){
                     menu_formatedContent += `
-                        <div id="" class="col-md-12">
-                            <div class="card">
-                                <div class="row ">
-                                    <div class="col-md-4">
-                                        <img src="${products[key].imgUrl}" class="w-100" />
-                                    </div>
-                                    <div class="col-md-8 align-self-center">
-                                        <div class="row">
-                                            <div class="col-md-8">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">${products[key].name}</h4>
-                                                    <hr>
-                                                    <span class="badge badge-warning" data-price="${products[key].price}">${products[key].price} €</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 align-self-center">
-                                                <button type="button" class="btn btn-dark">Ajouter</button> 
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="col-md-3 col-xs-6">
+                            <div class="card shadow-sm">
+                                <img src="${products[key].imgUrl}" class="image-menu img-fluid" alt="Fanta en canette">
+                                <div class="card-body">
+                                    <h4 class="card-title">${products[key].name}</h4>
+                                <hr>
+                                <span class="badge badge-dark">${products[key].price} €</span>
                                 </div>
                             </div>
                         </div>
                         `;
                 }
+            menu_formatedContent += `</div>`;
         }
         var menu_tag = document.getElementById("products");
         menu_tag.innerHTML = menu_formatedContent;
-
-        // Ajoute un élément au panier
-        var cart_item_formatedContent = "";
-        document.addEventListener("click", (event) => {
-            if (event.target.matches('#products button')) {
-                parent = event.target.closest(".card");
-                cart_item_formatedContent += `
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="${parent.querySelector("img").src}" class="w-100" />
-                        </div>
-                        <div class="col-md-5 align-self-center" align-self-center>
-                            <span>${parent.querySelector("h4").textContent}</span>
-                        </div>
-                        <div class="col-md-3 align-self-center">
-                            <span class="badge badge-warning">${parent.querySelector("span").dataset.price} €</span>
-                        </div>
-                    </div>
-                `;
-                var cart_items_tag = document.getElementById("cart-items");
-                cart_items_tag.insertAdjacentHTML("beforebegin", cart_item_formatedContent);
-                cart_item_formatedContent = "";
-            }
-        });
     })
     .catch(err => console.log(err));
 
