@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    var dataDirectory = "/data"
+    var dataDirectory = "./data"
 
     /**
      * ==================================================
