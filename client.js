@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch(dataDirectory+"/"+description_file)
     .then(res => res.json())
     .then(data => {
-        description_tag = document.getElementById("description");
-        description_tag.innerHTML = data.description;
+        description_id = document.getElementById("description");
+        description_id.innerHTML = data.description;
     })
     .catch(err => console.log(err));
 
@@ -28,7 +28,57 @@ document.addEventListener('DOMContentLoaded', function() {
           xfbml            : true,
           version          : 'v2.6'
         });
+
+        var temp = "357781158359111";
+        const FB_token = "EAAXj9jlgYNABAK1kkx9CaQVGrxKcj1YrQxYmz9qYQGN4pBztk3TvZCc8w51m2Y41XSZBb4laJB8nDdOxmNdmSgVH00nF2F0zdeFnj4mUjphFOPAa5qz41PwvkiggBoowBZBr6FpPWhLNvZBCxp2fwboIWpW5RraZCRlydeunfWafn1iCzGePS";
+        var slider_formatedContent = "";
+        var rating_formatedContent = "";
+        var reviewText_counter = 0;
+        FB.api('/me/ratings', 'GET', {"access_token":""+FB_token+"","fields":"review_text,reviewer{name,picture.type(large)}"}, function(response) {
+                if (response && !response.error) {
+                        for (const key in response) {
+                            if (response.hasOwnProperty(key)) {
+                                const row = response[key];
+                                for (const key in row) {
+                                    if (row.hasOwnProperty(key)) {
+                                        currentItem = row[key];
+                                        if (currentItem.hasOwnProperty("review_text")){
+                                            reviewText_counter++;
+                                            rating_formatedContent += `
+                                                <div class="carousel-item ${(key+1 == 1)? "active" : ""}">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                        <!-- Column Background -->
+                                                        <img src="${currentItem.reviewer.picture.data.url}" style="width:${currentItem.reviewer.picture.data.width}px" alt="" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            `;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                    slider_formatedContent += `<div id="slider_17" class="carousel slide columns_move_1 swipe_x ps_slowSpeedy" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="1000" data-column="${reviewText_counter}" data-m1200="${reviewText_counter}" data-m992="3" data-m768="2" data-m576="1">`;
+                    slider_formatedContent += `<div class="carousel-inner" role="listbox">`;
+                    slider_formatedContent += rating_formatedContent;
+                    slider_formatedContent += `</div>`;
+                    slider_formatedContent += `<a class="carousel-control-prev ps_control_left ps_top_left_x" href="#slider_17" data-slide="prev">
+                    <i class="fas fa-angle-left"></i></a>`;
+                    slider_formatedContent += `<a class="carousel-control-next ps_control_right ps_top_left_x" href="#slider_17" data-slide="next">
+                    <i class="fas fa-angle-right"></i></a>`;
+                    slider_formatedContent += `</div>`;
+
+                    var rating_id = document.getElementById("ratings");
+                    rating_id.innerHTML = slider_formatedContent;
+                }else{
+                    console.log(response.error);
+                }
+            }
+        );
     };
+
     (function(d, s, id){
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) {return;}
@@ -36,6 +86,8 @@ document.addEventListener('DOMContentLoaded', function() {
     js.src = "https://connect.facebook.net/fr_FR/sdk/xfbml.customerchat.js";
     fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
+
+
 
     /**
      * ==================================================
@@ -69,8 +121,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             menu_formatedContent += `</div>`;
         }
-        var menu_tag = document.getElementById("products");
-        menu_tag.innerHTML = menu_formatedContent;
+        var menu_id = document.getElementById("products");
+        menu_id.innerHTML = menu_formatedContent;
     })
     .catch(err => console.log(err));
 
