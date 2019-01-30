@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         for (const key in response) {
                             if (response.hasOwnProperty(key)) {
                                 const row = response[key];
+                                console.log(row);
                                 for (const key in row) {
                                     if (row.hasOwnProperty(key)) {
                                         currentItem = row[key];
@@ -48,8 +49,20 @@ document.addEventListener('DOMContentLoaded', function() {
                                                 <div class="carousel-item ${(key+1 == 1)? "active" : ""}">
                                                     <div class="row">
                                                         <div class="col">
-                                                        <!-- Column Background -->
-                                                        <img src="${currentItem.reviewer.picture.data.url}" style="width:${currentItem.reviewer.picture.data.width}px" alt="" />
+                                                            <div class="card">
+                                                                <div class="row ">
+                                                                    <div class="col-md-4">
+                                                                        <img src="${currentItem.reviewer.picture.data.url}" class="w-100">
+                                                                    </div>
+                                                                    <div class="col-md-8 align-self-center">
+                                                                        <div class="card-body">
+                                                                            <h4 class="card-title">${currentItem.reviewer.name}</h4>
+                                                                            <hr>
+                                                                            <p>${currentItem.review_text}</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
