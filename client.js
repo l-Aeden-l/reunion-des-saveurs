@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             }
                         }
 
-                    slider_formatedContent += `<div id="slider_17" class="carousel slide columns_move_1 swipe_x ps_slowSpeedy" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="1000" data-column="${reviewText_counter}" data-m1200="${reviewText_counter}" data-m992="3" data-m768="2" data-m576="1">`;
+                    slider_formatedContent += `<div id="slider_17" class="carousel slide columns_move_1 swipe_x ps_slowSpeedy" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="1000" data-column="${reviewText_counter}" data-m1200="4" data-m992="3" data-m768="2" data-m576="1">`;
                     slider_formatedContent += `<div class="carousel-inner" role="listbox">`;
                     slider_formatedContent += rating_formatedContent;
                     slider_formatedContent += `</div>`;
