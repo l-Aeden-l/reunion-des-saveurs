@@ -12,23 +12,34 @@ nav .nav-link {
 
 /* Réglages carousel */
 /* Horizontal */
+.ps_control_left.ps_top_left_x, .ps_control_right.ps_top_right_x {
+    background-color: #101011;
+    color: #f5f5f6;
+    top: 166px!important;
+}
 .ps_control_left.ps_top_left_x {
-    top: 216px!important;
     left: -50px!important;
 }
 .ps_control_right.ps_top_right_x {
-    top: 216px!important;
     right: -50px!important;
 }
-
+@media only screen and (max-width: 480px) {
+    .ps_control_left.ps_top_left_x {
+        left: 15px!important;
+    }
+    .ps_control_right.ps_top_right_x {
+        right: 15px!important;
+    }
+}
 .card {
     margin-bottom: 1.75rem;
 }
     .card-body {
         text-align: center;
     }
-    .card-body p {
-        text-align: left!important;
+    .card-body > p {
+        text-align: justify;
+        hyphens: auto;
     }
 
     .card-body .badge { 
