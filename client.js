@@ -49,18 +49,12 @@ document.addEventListener('DOMContentLoaded', function() {
                                                 <div class="carousel-item ${(key+1 == 1)? "active" : ""}">
                                                     <div class="row">
                                                         <div class="col">
-                                                            <div class="card">
-                                                                <div class="row ">
-                                                                    <div class="col-md-4">
-                                                                        <img src="${currentItem.reviewer.picture.data.url}" class="w-100">
-                                                                    </div>
-                                                                    <div class="col-md-8 align-self-center">
-                                                                        <div class="card-body">
-                                                                            <h4 class="card-title">${currentItem.reviewer.name}</h4>
-                                                                            <hr>
-                                                                            <p>${currentItem.review_text}</p>
-                                                                        </div>
-                                                                    </div>
+                                                            <div class="card shadow-sm">
+                                                                <img src="${currentItem.reviewer.picture.data.url}" class="image-menu img-fluid">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">${currentItem.reviewer.name}</h4>
+                                                                    <hr>
+                                                                    <p>${currentItem.review_text}</p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -85,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     var rating_id = document.getElementById("ratings");
                     rating_id.innerHTML = slider_formatedContent;
+                    bs4carousels();
                 }else{
                     console.log(response.error);
                 }
