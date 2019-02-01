@@ -25,12 +25,12 @@
             },
             {
                 "imgUrl": "data/pictures/poulet-provencale.jpg",
-                "name": "'Poulet provençale",
+                "name": "Poulet provençale",
                 "price": 7.50
             },
             {
                 "imgUrl": "data/pictures/tomate-provencale.jpg",
-                "name": "'Poulet provençale",
+                "name": "Tomate provençale",
                 "price": 7.50
             }
         ]
