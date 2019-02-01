@@ -10,11 +10,25 @@ nav .nav-link {
     font-weight: 400;
 }
 
+/* Réglages carousel */
+/* Horizontal */
+.ps_control_left.ps_top_left_x {
+    top: 216px!important;
+    left: -50px!important;
+}
+.ps_control_right.ps_top_right_x {
+    top: 216px!important;
+    right: -50px!important;
+}
+
 .card {
     margin-bottom: 1.75rem;
 }
     .card-body {
         text-align: center;
+    }
+    .card-body p {
+        text-align: left!important;
     }
 
     .card-body .badge { 
