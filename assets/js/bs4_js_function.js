@@ -93,7 +93,7 @@ function bs4carousels(){
               alertTxtCol += 'Please make sure the value of (data-' + attr + ') should be <= to numbers of carousel-item (' + carouselItemLength + ').';
               alertTxtCol += '\n\n';
               alertTxtCol += 'Note : The values should not be 0 or empty And also (Positive Integers only)';
-              alert(alertTxtCol);
+              console.log(alertTxtCol);
               $('#' + sliderId).css({'display': 'none'});
             }
           }

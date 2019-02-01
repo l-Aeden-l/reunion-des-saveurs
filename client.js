@@ -1,6 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    var dataDirectory = "./data"
+    var dataDirectory = "./data";
+    Object.size = function(obj) {
+        var size = 0, key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+    };
 
     /**
      * ==================================================
@@ -52,9 +59,9 @@ document.addEventListener('DOMContentLoaded', function() {
                                                             <div class="card shadow-sm">
                                                                 <img src="${currentItem.reviewer.picture.data.url}" class="image-menu img-fluid">
                                                                 <div class="card-body">
-                                                                    <h4 class="card-title">${currentItem.reviewer.name}</h4>
+                                                                    <h4 class="card-title text-center">${currentItem.reviewer.name}</h4>
                                                                     <hr>
-                                                                    <p>${currentItem.review_text}</p>
+                                                                    <p class="text-justify">${currentItem.review_text}</p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -67,13 +74,13 @@ document.addEventListener('DOMContentLoaded', function() {
                             }
                         }
 
-                    slider_formatedContent += `<div id="slider_17" class="carousel slide columns_move_1 swipe_x ps_slowSpeedy" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="500" data-column="${reviewText_counter}" data-m1200="${reviewText_counter}" data-m992="3" data-m768="2" data-m576="1">`;
+                    slider_formatedContent += `<div id="slider_a_1" class="carousel slide columns_move_1 swipe_x ps_slowSpeedy" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="500" data-column="${reviewText_counter}" data-m1200="4" data-m992="3" data-m768="2" data-m576="1">`;
                     slider_formatedContent += `<div class="carousel-inner" role="listbox">`;
                     slider_formatedContent += rating_formatedContent;
                     slider_formatedContent += `</div>`;
-                    slider_formatedContent += `<a class="carousel-control-prev ps_control_left ps_top_left_x" href="#slider_17" data-slide="prev">
+                    slider_formatedContent += `<a class="carousel-control-prev ps_control_left ps_top_left_x" href="#slider_a_1" data-slide="prev">
                     <i class="fas fa-angle-left"></i></a>`;
-                    slider_formatedContent += `<a class="carousel-control-next ps_control_right ps_top_right_x" href="#slider_17" data-slide="next">
+                    slider_formatedContent += `<a class="carousel-control-next ps_control_right ps_top_right_x" href="#slider_a_1" data-slide="next">
                     <i class="fas fa-angle-right"></i></a>`;
                     slider_formatedContent += `</div>`;
 
@@ -110,27 +117,59 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(res => res.json())
     .then(data => {
         for (const key in data) {
-            menu_formatedContent += `<h2>${data[key].name}</h2>`;
-            menu_formatedContent += `<div class="row">`;
-                products = data[key].products;
-                for(const key in products){
-                    menu_formatedContent += `
-                        <div class="col-md-3 col-sm-4 col-6">
-                            <div class="card shadow-sm">
-                                <img src="${products[key].imgUrl}" class="image-menu img-fluid" alt="Fanta en canette">
-                                <div class="card-body">
-                                    <h4 class="card-title">${products[key].name}</h4>
-                                <hr>
-                                <span class="badge badge-dark">${products[key].price} €</span>
+            products = data[key].products;
+            productNumber = Object.size(products);
+            if(productNumber >= 4){
+                menu_formatedContent += `<h2>${data[key].name}</h2>`;
+                menu_formatedContent += `<div id="slider_b_${key+1}" class="carousel slide columns_move_1 swipe_x ps_slowSpeedy" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="500" data-column="4" data-m1200="4" data-m992="3" data-m768="2" data-m576="1">`;
+                menu_formatedContent += `<div class="carousel-inner" role="listbox">`;
+                    for(const key in products){
+                        menu_formatedContent += `
+                            <div class="carousel-item ${(key+1 == 1)? "active" : ""}">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card shadow-sm">
+                                            <img src="${products[key].imgUrl}" class="image-menu img-fluid" alt="Fanta en canette">
+                                            <div class="card-body text-center">
+                                                <h4 class="card-title">${products[key].name}</h4>
+                                            <hr>
+                                            <span class="badge badge-dark">${products[key].price} €</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        `;
-                }
-            menu_formatedContent += `</div>`;
+                            `;
+                    }
+                menu_formatedContent += `</div>`;
+                menu_formatedContent += `<a class="carousel-control-prev ps_control_left ps_top_left_x" href="#slider_b_${key+1}" data-slide="prev">
+                <i class="fas fa-angle-left"></i></a>`;
+                menu_formatedContent += `<a class="carousel-control-next ps_control_right ps_top_right_x" href="#slider_b_${key+1}" data-slide="next">
+                <i class="fas fa-angle-right"></i></a>`;
+                menu_formatedContent += `</div>`;
+            }else{
+                menu_formatedContent += `<h2>${data[key].name}</h2>`;
+                menu_formatedContent += `<div class="row">`;
+                    for(const key in products){
+                        menu_formatedContent += `
+                            <div class="col-md-3 col-sm-4 col-6">
+                                <div class="card shadow-sm">
+                                    <img src="${products[key].imgUrl}" class="image-menu img-fluid" alt="Fanta en canette">
+                                    <div class="card-body text-center">
+                                        <h4 class="card-title">${products[key].name}</h4>
+                                        <hr>
+                                        <span class="badge badge-dark">${products[key].price} €</span>
+                                    </div>
+                                </div>
+                            </div>
+                            `;
+                    }
+                menu_formatedContent += `</div>`;
+            }
         }
         var menu_id = document.getElementById("products");
         menu_id.innerHTML = menu_formatedContent;
+        bs4carousels();
     })
     .catch(err => console.log(err));
 
