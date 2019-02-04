@@ -1,11 +1,15 @@
-
+/** ----------------------------------------------------
+ *
+ *                MENU (produits du site)
+ *
+ * -------------------------------------------------- */
 
 /* Agrandissement de la taille de police d'origine du menu */
 nav .nav-link {
     font-size: 1.25rem;
 }
 
-.lead {
+#description.lead {
     text-align: justify;
     font-weight: 400;
 }
@@ -22,36 +26,32 @@ nav .nav-link {
 .ps_control_right.ps_top_right_x {
     right: -50px!important;
 }
-@media only screen and (max-width: 480px) {
-    .ps_control_left.ps_top_left_x {
-        left: 15px!important;
+    @media only screen and (max-width: 480px) {
+        .ps_control_left.ps_top_left_x {
+            left: 15px!important;
+        }
+        .ps_control_right.ps_top_right_x {
+            right: 15px!important;
+        }
     }
-    .ps_control_right.ps_top_right_x {
-        right: 15px!important;
-    }
-}
 
 .card {
     margin-bottom: 1.75rem;
 }
-
     .card-body .badge { 
         text-align: inherit;
         font-size: 1.25rem;
         font-weight: 400;
     }
 
-/**
- * Sticky-sidebar
- */
 
-#cart .card{
-    position: sticky;
-    position: -webkit-sticky;
-    top: 100px; /* required */
-}
 
-/* Carte OpenStreetMap de la Réunion */
+/** ----------------------------------------------------
+ *
+ *                      SECTION LOCATION
+ *
+ * -------------------------------------------------- */
+
 section#location #map {
     width: 100%;
     height: 400px;

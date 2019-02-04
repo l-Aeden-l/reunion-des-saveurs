@@ -1,5 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    /**
+     *     ---------- Utilitaires ----------
+     */
+
+    var getTodayName = function(language){
+        weekDays_en = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+        weekDays_fr = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
+        date = new Date();
+        today_en = weekDays_en[date.getDay()];
+        today_fr = weekDays_fr[date.getDay() - 1];
+        return (language == "fr")? today_fr : today_en;
+    }
+
     var dataDirectory = "./data";
     Object.size = function(obj) {
         var size = 0, key;
@@ -46,7 +59,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         for (const key in response) {
                             if (response.hasOwnProperty(key)) {
                                 const row = response[key];
-                                console.log(row);
                                 for (const key in row) {
                                     if (row.hasOwnProperty(key)) {
                                         currentItem = row[key];
@@ -223,29 +235,57 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Affichage des emplacements
         var locations_file = "locations.json";
-        var weekDays = new Array( "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche" );
-        var date = new Date();
-        var today = weekDays[date.getDay() - 1];
-        today = "Mardi";
+        var opening = document.getElementById("opening");
+        // Par défaut affiche la date du jour comme fermé
+        opening_formatedContent = `
+        Aujourd'hui nous sommes ${getTodayName("fr")}.<br>
+        Réuion des saveurs est fermé !<br>`;        
+
         fetch(dataDirectory+"/"+locations_file)
         .then(res => res.json())
         .then(data => {
             for (const key in data) {
                 if (data.hasOwnProperty(key)) {
                     const element = data[key];
-                    console.log(today+" "+element.day);
-                    if(today == element.day){
-                        L.marker([element.latitude, element.longitude], {icon: activeIcon}).addTo(mymap)
-                        .bindPopup(`<b>${element.day}</b><br/>${element.description}`).openPopup();
-                    }else{
-                        L.marker([element.latitude, element.longitude], {icon: regularIcon}).addTo(mymap)
-                        .bindPopup(`<b>${element.day}</b><br/>${element.description}`);
+                    // [header#home]
+                    // Si c'est un jour d'ouverture on affiche le message sur fond vert avec un lien vers l'emplacement,
+                    // sinon on l'affiche sur fond gris.
+                    if (element.openingDay){
+                        console.log(getTodayName()+" "+element.day);
+                        // [section#location #map]
+                        // Si la date du jour correspond à l'élément courant, on le marqueur color en vert, sinon en noir.
+                        if(getTodayName() == element.day){
+                            L.marker([element.latitude, element.longitude], {icon: activeIcon}).addTo(mymap)
+                            .bindPopup(`<b>${getTodayName("fr")}</b><br/>${element.description}`).openPopup();
+                            opening.classList.replace('alert-secondary', 'alert-success');
+                            opening_formatedContent = `
+                            Aujourd'hui nous sommes ${getTodayName("fr")}.<br>
+                            Réuion des saveurs est ouvert !<br>
+                            <a class="nav-link js-scroll-trigger text-primary" data-latitude="${element.latitude}" data-longitude="${element.longitude}" href="#location">
+                            Voir l'emplacement
+                            </a>`;
+                        }else{
+                            L.marker([element.latitude, element.longitude], {icon: regularIcon}).addTo(mymap)
+                            .bindPopup(`<b>${getTodayName("fr")}</b><br/>${element.description}`);
+                        }
                     }
                 }
             }
+            opening.innerHTML = opening_formatedContent;
         })
         .catch(err => console.log(err));
 
     var popup = L.popup();
+
+    var opening = document.getElementById("opening");
+    opening.addEventListener("click", (event) => {
+        if (event.target.matches('a')) {
+            latitude = event.target.getAttribute("data-latitude");
+            longitude = event.target.getAttribute("data-longitude");
+            window.setTimeout(() => {
+                mymap.setView([latitude, longitude], zoomLevel, { animation: true });                
+            }, 1000);
+        }
+    });
     
 })
