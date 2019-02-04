@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
             productNumber = Object.size(products);
             if(productNumber > 1){
                 menu_formatedContent += `<h2>${data[key].name}</h2>`;
-                menu_formatedContent += `<div id="slider_b_${key+1}" class="carousel slide columns_move_1 swipe_x ps_slowSpeedy" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="500" data-column="${(productNumber < 4)? productNumber : 4}" data-m1200="4" data-m992="3" data-m768="2" data-m576="1">`;
+                menu_formatedContent += `<div id="slider_b_${key+1}" class="carousel slide columns_move_1 swipe_x ps_slowSpeedy" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="300" data-column="${(productNumber < 4)? productNumber : 4}" data-m1200="4" data-m992="3" data-m768="2" data-m576="1">`;
                 menu_formatedContent += `<div class="carousel-inner" role="listbox">`;
                     for(const key in products){
                         menu_formatedContent += `
@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Par défaut affiche la date du jour comme fermé
         opening_formatedContent = `
         Aujourd'hui nous sommes ${getTodayName("fr")}.<br>
-        Réuion des saveurs est fermé !<br>`;        
+        Réunion des saveurs est fermé !<br>`;        
 
         fetch(dataDirectory+"/"+locations_file)
         .then(res => res.json())
@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             opening.classList.replace('alert-secondary', 'alert-success');
                             opening_formatedContent = `
                             Aujourd'hui nous sommes ${getTodayName("fr")}.<br>
-                            Réuion des saveurs est ouvert !<br>
+                            Réunion des saveurs est ouvert !<br>
                             <a class="nav-link js-scroll-trigger text-primary" data-latitude="${element.latitude}" data-longitude="${element.longitude}" href="#location">
                             Voir l'emplacement
                             </a>`;
