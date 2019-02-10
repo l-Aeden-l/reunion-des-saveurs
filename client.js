@@ -5,11 +5,11 @@ document.addEventListener('DOMContentLoaded', function() {
      */
 
     var getTodayName = function(language){
-        weekDays_en = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-        weekDays_fr = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
+        weekDays_en = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+        weekDays_fr = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
         date = new Date();
         today_en = weekDays_en[date.getDay()];
-        today_fr = weekDays_fr[date.getDay() - 1];
+        today_fr = weekDays_fr[date.getDay()];
         return (language == "fr")? today_fr : today_en;
     }
 
@@ -251,9 +251,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Si c'est un jour d'ouverture on affiche le message sur fond vert avec un lien vers l'emplacement,
                     // sinon on l'affiche sur fond gris.
                     if (element.openingDay){
-                        console.log(getTodayName()+" "+element.day);
                         // [section#location #map]
-                        // Si la date du jour correspond à l'élément courant, on le marqueur color en vert, sinon en noir.
+                        // Si la date du jour correspond à l'élément courant, on change la couleur du marqueur en vert, sinon on laisse en noir.
                         if(getTodayName() == element.day){
                             L.marker([element.latitude, element.longitude], {icon: activeIcon}).addTo(mymap)
                             .bindPopup(`<b>${getTodayName("fr")}</b><br/>${element.description}`).openPopup();
