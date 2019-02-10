@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             }
                         }
 
-                    slider_formatedContent += `<div id="slider_a_1" class="carousel slide columns_move_1 swipe_x ps_slowSpeedy" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="500" data-column="${reviewText_counter}" data-m1200="4" data-m992="3" data-m768="2" data-m576="1">`;
+                    slider_formatedContent += `<div id="slider_a_1" class="carousel slide columns_move_1 swipe_x ps_slowSpeedy" data-ride="carousel" data-pause="hover" data-interval="false" data-duration="500" data-column="${reviewText_counter}" data-m1200="4" data-m992="3" data-m768="2" data-m576="1">`;
                     slider_formatedContent += `<div class="carousel-inner" role="listbox">`;
                     slider_formatedContent += rating_formatedContent;
                     slider_formatedContent += `</div>`;
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
             productNumber = Object.size(products);
             if(productNumber > 1){
                 menu_formatedContent += `<h2>${data[key].name}</h2>`;
-                menu_formatedContent += `<div id="slider_b_${key+1}" class="carousel slide columns_move_1 swipe_x ps_slowSpeedy" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="300" data-column="${(productNumber < 4)? productNumber : 4}" data-m1200="4" data-m992="3" data-m768="2" data-m576="1">`;
+                menu_formatedContent += `<div id="slider_b_${key+1}" class="carousel slide columns_move_1 swipe_x ps_slowSpeedy" data-ride="carousel" data-pause="hover" data-interval="false" data-duration="300" data-column="${(productNumber < 4)? productNumber : 4}" data-m1200="4" data-m992="3" data-m768="2" data-m576="1">`;
                 menu_formatedContent += `<div class="carousel-inner" role="listbox">`;
                     for(const key in products){
                         menu_formatedContent += `
